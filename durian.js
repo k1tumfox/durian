@@ -32,6 +32,13 @@ class Employee {
     return this.boss === employee.boss;
   }
 
+  depthFirstTraversal() {
+    console.log(this.name); //change to 'this.name' instead for easy view in terminal
+    for (const sub of this.subordinates) {
+      sub.depthFirstTraversal();
+    }
+  }
+
 }
 
 const ada = new Employee("Ada", "CEO", 3000000.00);
@@ -81,3 +88,4 @@ console.log(`Craig's boss is ${craig.boss}`);
 console.log(`Craig has ${craig.numberOfSubordinates} subs`);
 console.log(`Craig has ${craig.numberOfPeopleToCEO} people between him and the throne`);
 
+ada.depthFirstTraversal();
